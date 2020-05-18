@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,26 @@ namespace SimpleCRM.Data
     public enum Role { Owner=1, Manager, Employee, Individual }
     public class Customer
     {
+        [Key]
         public int CustomerId { get; set; }
+
+        [Required]
         public string CustFirstName { get; set; }
+
+        [Required]
         public string CustLastName { get; set; }
-        public int Organization { get; set; }
-        public int Points { get; set; }
+
+
+        public int? Organization { get; set; }
+        public int? Points { get; set; }
+
+        [Required]
         public Status Status { get; set; }
-        public int MyProperty { get; set; }
+
+        [Required]
+        public Role Role { get; set; }
+
+        [Required]
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
