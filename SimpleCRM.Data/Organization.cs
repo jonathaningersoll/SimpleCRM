@@ -8,6 +8,9 @@ namespace SimpleCRM.Data
 {
     public class Organization
     {
-
+        public int OrgId { get; set; }
+        public string OrgName { get; set; }
+        public string Address { get; set; }
+        public string Industry { get; set; }
     }
 }
