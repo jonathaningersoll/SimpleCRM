@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace SimpleCRM.Data
     public class Customer
     {
         [Key]
-        public int CustomerId { get; set; }
+        public int CustId { get; set; }
 
         [Required]
         public string CustFirstName { get; set; }
@@ -20,8 +21,21 @@ namespace SimpleCRM.Data
         [Required]
         public string CustLastName { get; set; }
 
+        public string Fullname { 
+            get
+            {
+                return fullName;
+            }
+            set
+            {
+                string fullName = CustFirstName + CustLastName;
+            }
+         }
 
-        public int? Organization { get; set; }
+        [ForeignKey("OrganizationId")]
+        public Organization Organization { get; set; }
+
+
         public int? Points { get; set; }
 
         [Required]
@@ -32,5 +46,7 @@ namespace SimpleCRM.Data
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
+
+        private string fullName;
     }
 }
