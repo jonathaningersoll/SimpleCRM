@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Models.InteractionModel
 {
-    class InteractionEdit
+    public class InteractionEdit
     {
         public int InteractionId { get; set; }
         public int CustomerId { get; set; }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Models.CustomerModel
 {
-    class CustomerEdit
+    public class CustomerEdit
     {
         public int CustId { get; set; }
         public string CustFirstName { get; set; }

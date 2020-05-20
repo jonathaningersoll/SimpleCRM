@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Models.OrganizationModel
 {
-    class OrganizationCreate
+    public class OrganizationCreate
     {
         public int OrganizationId { get; set; }
     }
