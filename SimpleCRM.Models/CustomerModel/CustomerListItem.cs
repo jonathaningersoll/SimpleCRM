@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleCRM.Models.Customer
+namespace SimpleCRM.Models.CustomerModel
 {
     public class CustomerListItem
     {

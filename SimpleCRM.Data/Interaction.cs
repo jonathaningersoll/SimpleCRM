@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,11 +15,13 @@ namespace SimpleCRM.Data
 
         [Required]
         [ForeignKey("CustomerId")]
-        public Customer Customer { get; set; }
+        public int CustomerId { get; set; }
+        public virtual Customer Customer { get; set; }
 
         [Required]
         [ForeignKey("EventId")]
-        public Event Event { get; set; }
+        public int? EventId { get; set; }
+        public virtual Event Event { get; set; }
 
         [Display(Name = "Point Value")]
         public int InteractionPointValue { get; set; }
