@@ -19,5 +19,7 @@ namespace SimpleCRM.Models.InteractionModel
 
         public int InteractionPointValue { get; set; }
         public string InteractionNotes { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

@@ -1,23 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleCRM.Data
+namespace SimpleCRM.Models.OrganizationModel
 {
-    public class Organization
+    public class OrganizationDetail
     {
-        [Required]
-        public int OrgId { get; set; }
-
-        [Required]
-        [Display(Name = "Organization Name")]
+        public int OrganizationId { get; set; }
         public string OrgName { get; set; }
         public string OrgAddress { get; set; }
         public string OrgIndustry { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset ModifiedUtc { get; set; }
+        public DateTimeOffset Modified { get; set; }
     }
 }
