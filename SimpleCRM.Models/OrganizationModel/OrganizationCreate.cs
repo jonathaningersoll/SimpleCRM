@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleCRM.Models.Event
+namespace SimpleCRM.Models.OrganizationModel
 {
-    class EventCreate
+    class OrganizationCreate
     {
+        public int OrganizationId { get; set; }
     }
 }
