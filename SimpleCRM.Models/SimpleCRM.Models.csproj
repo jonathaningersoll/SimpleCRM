@@ -54,11 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer\CustomerCreate.cs" />
+    <Compile Include="Customer\CustomerListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Event\" />
+    <Folder Include="Interaction\" />
+    <Folder Include="Organization\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleCRM.Data\SimpleCRM.Data.csproj">
+      <Project>{9BA99FE2-1F2B-489B-BDB7-A61AE9715260}</Project>
+      <Name>SimpleCRM.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
