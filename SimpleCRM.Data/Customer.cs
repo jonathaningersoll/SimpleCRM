@@ -13,7 +13,7 @@ namespace SimpleCRM.Data
     public class Customer
     {
         [Key]
-        public int CustId { get; set; }
+        public int CustomerId { get; set; }
 
         public Guid OwnerId { get; set; }
 
@@ -30,7 +30,7 @@ namespace SimpleCRM.Data
             }
          }
 
-        [ForeignKey("OrganizationId")]
+        [ForeignKey("Organization")]
         public int? OrganizationId { get; set; }
         public virtual Organization Organization { get; set; }
 

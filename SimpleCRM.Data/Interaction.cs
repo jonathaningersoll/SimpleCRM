@@ -14,12 +14,12 @@ namespace SimpleCRM.Data
         public int InteractionId { get; set; }
 
         [Required]
-        [ForeignKey("CustomerId")]
+        [ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
 
         [Required]
-        [ForeignKey("EventId")]
+        [ForeignKey("Event")]
         public int? EventId { get; set; }
         public virtual Event Event { get; set; }
 
