@@ -1,4 +1,4 @@
-﻿using SimpleCRM.Models.CustomerModel;
+﻿using SimpleCRM.Models.OrganizationModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +7,12 @@ using System.Web.Mvc;
 
 namespace SimpleCRM.Controllers
 {
-    [Authorize]
-    public class CustomerController : Controller
+    public class OrganizationController : Controller
     {
-        // GET: Customer
+        // GET: Organization
         public ActionResult Index()
         {
-            var model = new CustomerListItem[0];
+            var model = new OrganizationListItem[0];
             return View(model);
         }
 
