@@ -54,21 +54,21 @@ namespace SimpleCRM.Services
             }
         }
 
-        public OrganizationDetail GetOrganizationById(int id)
+        public InteractionDetail GetInteractionById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Organizations
-                        .Single(e => e.OrganizationId == id && e.OwnerId == _userId);
+                        .Interactions
+                        .Single(e => e.InteractionId == id && e.OwnerId == _userId);
                 return
-                    new OrganizationDetail
+                    new InteractionDetail
                     {
-                        OrganizationId = entity.OrganizationId,
-                        OrganizationName = entity.OrganizationName,
-                        OrganizationAddress = entity.OrganizationAddress,
-                        OrganizationIndustry = entity.OrganizationIndustry,
+                        InteractionId = entity.InteractionId,
+                        Customer = entity.Customer.CustomerFullName,
+                        Event = entity.Event.EventName,
+                        InteractionPointValue = entity.InteractionPointValue,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
