@@ -35,19 +35,19 @@ namespace SimpleCRM.Services
             }
         }
 
-        public IEnumerable<OrganizationListItem> GetOrganizations()
+        public IEnumerable<InteractionListItem> GetInteractions()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Customers.
+                    .Interactions.
                     Where(e => e.OwnerId == _userId)
                     .Select(
-                        e => new OrganizationListItem
+                        e => new InteractionListItem
                         {
-                            OrganizationId = e.OrganizationId,
-                            OrganizationName = e.Organization.OrganizationName
+                            InteractionId = e.InteractionId,
+                            CustomerId = e.Customer.CustomerId
                         }
                     );
                 return query.ToArray();
