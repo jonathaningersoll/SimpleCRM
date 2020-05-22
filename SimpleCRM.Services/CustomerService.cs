@@ -21,8 +21,8 @@ namespace SimpleCRM.Services
             var entity = new Customer()
             {
                 OwnerId = _userId,
-                CustFirstName = model.CustFirstName,
-                CustLastName = model.CustLastName,
+                CustomerFirstName = model.CustFirstName,
+                CustomerLastName = model.CustLastName,
                 Organization = model.Organization,
                 Role = model.Role,
                 Points = model.Points,
@@ -32,80 +32,86 @@ namespace SimpleCRM.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Notes.Add(entity);
+                ctx.Customers.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<NoteListItem> GetNotes()
+        public IEnumerable<CustomerListItem> GetCustomers()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Notes.
+                    .Customers.
                     Where(e => e.OwnerId == _userId)
                     .Select(
-                        e => new NoteListItem
+                        e => new CustomerListItem
                         {
-                            NoteId = e.NoteId,
-                            Title = e.Title,
-                            IsStarred = e.IsStarred,
-                            CreatedUtc = e.CreatedUtc
+                            CustId = e.CustomerId,
+                            FullName = e.CustomerFullName,
+                            Points = e.Points
                         }
                     );
                 return query.ToArray();
             }
         }
 
-        public NoteDetail GetNoteById(int id)
+        public CustomerDetail GetCustomerById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == id && e.OwnerId == _userId);
+                        .Customers
+                        .Single(e => e.CustomerId == id && e.OwnerId == _userId);
                 return
-                    new NoteDetail
+                    new CustomerDetail
                     {
-                        NoteId = entity.NoteId,
-                        Title = entity.Title,
-                        Content = entity.Content,
+                        CustomerId = entity.CustomerId,
+                        CustomerFullName = entity.CustomerFullName,
+                        Organization = entity.Organization,
+                        Role = entity.Role,
+                        Points = entity.Points,
+                        Status = entity.Status,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc
+                        ModifiedUtc = entity.ModifiedUtc,
                     };
             }
         }
 
-        public bool UpdateNote(NoteEdit Model)
+        public bool UpdateCustomer(CustomerEdit Model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == Model.NoteId && e.OwnerId == _userId);
+                        .Customers
+                        .Single(e => e.CustomerId == Model.CustomerId && e.OwnerId == _userId);
 
-                entity.Title = Model.Title;
-                entity.Content = Model.Content;
-                entity.ModifiedUtc = DateTimeOffset.UtcNow;
-                entity.IsStarred = Model.IsStarred;
+                entity.CustomerFirstName = Model.CustomerFirstName;
+                entity.CustomerLastName = Model.CustomerLastName;
+                entity.Organization = Model.Organization;
+                entity.Points = Model.Points;
+                entity.Status = Model.Status;
+                entity.Role = Model.Role;
+                entity.ModifiedUtc = DateTime.Now;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteNote(int noteId)
+        // NEEDS FIXED
+        public bool DeleteCustomer(int CustomerId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Notes
-                        .Single(e => e.NoteId == noteId && e.OwnerId == _userId);
+                        .Customers
+                        .Single(e => e.CustomerId == CustomerId && e.OwnerId == _userId);
 
-                ctx.Notes.Remove(entity);
+                ctx.Customers.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

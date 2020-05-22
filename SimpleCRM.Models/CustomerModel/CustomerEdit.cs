@@ -11,9 +11,9 @@ namespace SimpleCRM.Models.CustomerModel
 {
     public class CustomerEdit
     {
-        public int CustId { get; set; }
-        public string CustFirstName { get; set; }
-        public string CustLastName { get; set; }
+        public int CustomerId { get; set; }
+        public string CustomerFirstName { get; set; }
+        public string CustomerLastName { get; set; }
 
         [ForeignKey("OrganizationId")]
         public int? OrganizationId { get; set; }

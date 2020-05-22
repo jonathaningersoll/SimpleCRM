@@ -12,7 +12,7 @@ namespace SimpleCRM.Models.CustomerModel
     {
         public int CustId { get; set; }
         public string FullName { get; set; }
-        public int Points { get; set; }
+        public int? Points { get; set; }
         public Status Status { get; set; }
     }
 }
