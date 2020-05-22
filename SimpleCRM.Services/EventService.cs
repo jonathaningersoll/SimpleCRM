@@ -14,7 +14,7 @@ namespace SimpleCRM.Services
             _userId = userId;
         }
 
-        public bool CreateOrganization(OrganizationCreate model)
+        public bool CreateEvent(OrganizationCreate model)
         {
             var entity = new Organization()
             {
@@ -31,7 +31,7 @@ namespace SimpleCRM.Services
             }
         }
 
-        public IEnumerable<OrganizationListItem> GetOrganizations()
+        public IEnumerable<OrganizationListItem> GetEvents()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -50,7 +50,7 @@ namespace SimpleCRM.Services
             }
         }
 
-        public OrganizationDetail GetOrganizationById(int id)
+        public OrganizationDetail GetEventById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -71,7 +71,7 @@ namespace SimpleCRM.Services
             }
         }
 
-        public bool UpdateOrganization(OrganizationEdit Model)
+        public bool UpdateEvent(OrganizationEdit Model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -89,8 +89,7 @@ namespace SimpleCRM.Services
             }
         }
 
-        // NEEDS FIXED
-        public bool DeleteOrganization(int OrganizationId)
+        public bool DeleteEvent(int OrganizationId)
         {
             using (var ctx = new ApplicationDbContext())
             {
