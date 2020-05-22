@@ -59,15 +59,16 @@ namespace SimpleCRM.Services
             {
                 var entity =
                     ctx
-                        .Organizations
-                        .Single(e => e.OrganizationId == id && e.OwnerId == _userId);
+                        .Events
+                        .Single(e => e.EventId == id && e.OwnerId == _userId);
                 return
-                    new OrganizationDetail
+                    new EventDetail
                     {
-                        OrganizationId = entity.OrganizationId,
-                        OrganizationName = entity.OrganizationName,
-                        OrganizationAddress = entity.OrganizationAddress,
-                        OrganizationIndustry = entity.OrganizationIndustry,
+                        EventId = entity.EventId,
+                        EventStartTime = entity.EventStartTime,
+                        EventEndTime = entity.EventEndTime,
+                        EventName = entity.EventName,
+                        EventTopic = entity.EventTopic,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };

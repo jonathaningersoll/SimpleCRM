@@ -30,6 +30,6 @@ namespace SimpleCRM.Data
         public string EventTopic { get; set; }
 
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset dateTimeOffset { get; set; }
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }
