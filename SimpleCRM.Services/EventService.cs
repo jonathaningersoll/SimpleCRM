@@ -1,6 +1,4 @@
-﻿using SimpleCRM.Data;
-using SimpleCRM.Models.OrganizationModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Services
 {
-    class OrganizationService
+    class EventService
     {
         private readonly Guid _userId;
-        public OrganizationService(Guid userId)
+        public EventService(Guid userId)
         {
             _userId = userId;
         }
@@ -91,6 +89,7 @@ namespace SimpleCRM.Services
             }
         }
 
+        // NEEDS FIXED
         public bool DeleteOrganization(int OrganizationId)
         {
             using (var ctx = new ApplicationDbContext())
