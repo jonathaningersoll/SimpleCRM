@@ -9,6 +9,6 @@ namespace SimpleCRM.Models.OrganizationModel
     public class OrganizationListItem
     {
         public int OrganizationId { get; set; }
-        public string OrgName { get; set; }
+        public string OrganizationName { get; set; }
     }
 }
