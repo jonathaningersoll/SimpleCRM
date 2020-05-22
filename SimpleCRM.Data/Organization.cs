@@ -13,6 +13,8 @@ namespace SimpleCRM.Data
         [Key]
         public int OrganizationId { get; set; }
 
+        public Guid OwnerId { get; set; }
+
         [Required]
         [Display(Name = "Organization Name")]
         public string OrganizationName { get; set; }
