@@ -14,6 +14,8 @@ namespace SimpleCRM.Data
         [Key]
         public int EventId { get; set; }
 
+        public Guid OwnerId { get; set; }
+
         [Required]
         public DateTimeOffset EventStartTime { get; set; }
 

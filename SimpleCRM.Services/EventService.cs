@@ -40,13 +40,13 @@ namespace SimpleCRM.Services
             {
                 var query =
                     ctx
-                    .Customers.
+                    .Events.
                     Where(e => e.OwnerId == _userId)
                     .Select(
-                        e => new OrganizationListItem
+                        e => new EventListItem
                         {
-                            OrganizationId = e.OrganizationId,
-                            OrganizationName = e.Organization.OrganizationName
+                            EventId = e.EventId,
+                            EventName = e.EventName
                         }
                     );
                 return query.ToArray();
