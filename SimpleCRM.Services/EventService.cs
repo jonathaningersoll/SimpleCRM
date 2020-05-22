@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SimpleCRM.Data;
+using SimpleCRM.Models.EventModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +18,12 @@ namespace SimpleCRM.Services
 
         public bool CreateEvent(EventCreate model)
         {
-            var entity = new Organization()
+            var entity = new Event()
             {
-                OrganizationName = model.OrganizationName,
-                OrganizationAddress = model.OrganizationAddress,
-                OrganizationIndustry = model.OrgaizationIndustry,
+                EventStartTime = model.EventStartTime,
+                EventEndTime = model.EventEndTime,
+                EventName = model.EventName,
+                EventTopic = model.EventTopic,
                 CreatedUtc = DateTimeOffset.Now
             };
 
