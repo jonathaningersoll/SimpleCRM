@@ -91,7 +91,6 @@ namespace SimpleCRM.Services
             }
         }
 
-        // NEEDS FIXED
         public bool DeleteOrganization(int OrganizationId)
         {
             using (var ctx = new ApplicationDbContext())
