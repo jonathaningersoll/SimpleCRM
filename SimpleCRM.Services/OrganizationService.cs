@@ -28,7 +28,7 @@ namespace SimpleCRM.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Customers.Add(entity);
+                ctx.Organizations.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -58,19 +58,17 @@ namespace SimpleCRM.Services
             {
                 var entity =
                     ctx
-                        .Customers
-                        .Single(e => e.CustomerId == id && e.OwnerId == _userId);
+                        .Organizations
+                        .Single(e => e.OrganizationId == id && e.OwnerId == _userId);
                 return
-                    new CustomerDetail
+                    new OrganizationDetail
                     {
-                        CustomerId = entity.CustomerId,
-                        CustomerFullName = entity.CustomerFullName,
-                        Organization = entity.Organization,
-                        Role = entity.Role,
-                        Points = entity.Points,
-                        Status = entity.Status,
+                        OrganizationId = entity.OrganizationId,
+                        OrganizationName = entity.OrganizationName,
+                        OrganizationAddress = entity.OrganizationAddress,
+                        OrganizationIndustry = entity.OrganizationIndustry,
                         CreatedUtc = entity.CreatedUtc,
-                        ModifiedUtc = entity.ModifiedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }

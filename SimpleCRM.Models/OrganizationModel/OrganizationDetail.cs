@@ -8,11 +8,12 @@ namespace SimpleCRM.Models.OrganizationModel
 {
     public class OrganizationDetail
     {
+        public Guid OwnerId { get; set; }
         public int OrganizationId { get; set; }
         public string OrganizationName { get; set; }
         public string OrganizationAddress { get; set; }
         public string OrganizationIndustry { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
-        public DateTimeOffset Modified { get; set; }
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }
