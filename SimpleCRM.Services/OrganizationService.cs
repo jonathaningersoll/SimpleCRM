@@ -85,7 +85,7 @@ namespace SimpleCRM.Services
                 entity.OrganizationName = Model.OrganizationName;
                 entity.OrganizationAddress = Model.OrganizationAddress;
                 entity.OrganizationIndustry = Model.OrganizationIndustry;
-                entity.ModifiedUtc = DateTime.Now
+                entity.ModifiedUtc = DateTime.Now;
 
                 return ctx.SaveChanges() == 1;
             }
@@ -98,10 +98,10 @@ namespace SimpleCRM.Services
             {
                 var entity =
                     ctx
-                        .Customers
-                        .Single(e => e.CustomerId == CustomerId && e.OwnerId == _userId);
+                        .Organizations
+                        .Single(e => e.OrganizationId == OrganizationId && e.OwnerId == _userId);
 
-                ctx.Customers.Remove(entity);
+                ctx.Organizations.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
