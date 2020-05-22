@@ -81,12 +81,13 @@ namespace SimpleCRM.Services
             {
                 var entity =
                     ctx
-                        .Organizations
-                        .Single(e => e.OrganizationId == Model.OrganizationId && e.OwnerId == _userId);
+                        .Events
+                        .Single(e => e.EventId == Model.EventId && e.OwnerId == _userId);
 
-                entity.OrganizationName = Model.OrganizationName;
-                entity.OrganizationAddress = Model.OrganizationAddress;
-                entity.OrganizationIndustry = Model.OrganizationIndustry;
+                entity.EventName = Model.EventName;
+                entity.EventStartTime = Model.EventStartTime;
+                entity.EventEndTime = Model.EventEndTime;
+                entity.EventTopic = Model.EventTopic;
                 entity.ModifiedUtc = DateTime.Now;
 
                 return ctx.SaveChanges() == 1;
@@ -99,8 +100,8 @@ namespace SimpleCRM.Services
             {
                 var entity =
                     ctx
-                        .Organizations
-                        .Single(e => e.OrganizationId == OrganizationId && e.OwnerId == _userId);
+                        .Events
+                        .Single(e => e.EventId == EventId && e.OwnerId == _userId);
 
                 ctx.Organizations.Remove(entity);
 
