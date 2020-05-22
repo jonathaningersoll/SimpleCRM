@@ -103,7 +103,7 @@ namespace SimpleCRM.Services
                         .Events
                         .Single(e => e.EventId == EventId && e.OwnerId == _userId);
 
-                ctx.Organizations.Remove(entity);
+                ctx.Events.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

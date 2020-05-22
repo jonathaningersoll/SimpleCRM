@@ -55,11 +55,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerService.cs" />
+    <Compile Include="EventService.cs" />
+    <Compile Include="OrganizationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleCRM.Data\SimpleCRM.Data.csproj">
+      <Project>{9ba99fe2-1f2b-489b-bdb7-a61ae9715260}</Project>
+      <Name>SimpleCRM.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SimpleCRM.Models\SimpleCRM.Models.csproj">
+      <Project>{ebd2edf0-2111-467b-8bba-ce4fe53ff643}</Project>
+      <Name>SimpleCRM.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
