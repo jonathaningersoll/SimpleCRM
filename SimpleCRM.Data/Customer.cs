@@ -18,15 +18,15 @@ namespace SimpleCRM.Data
         public Guid OwnerId { get; set; }
 
         [Required]
-        public string CustFirstName { get; set; }
+        public string CustomerFirstName { get; set; }
 
         [Required]
-        public string CustLastName { get; set; }
+        public string CustomerLastName { get; set; }
 
-        public string CustFullname { 
+        public string CustomerFullName { 
             get
             {
-                return CustFirstName + CustLastName;
+                return CustomerFirstName + CustomerLastName;
             }
          }
 
@@ -45,5 +45,6 @@ namespace SimpleCRM.Data
 
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }
