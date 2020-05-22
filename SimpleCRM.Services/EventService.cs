@@ -29,7 +29,7 @@ namespace SimpleCRM.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Organizations.Add(entity);
+                ctx.Events.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
