@@ -28,5 +28,6 @@ namespace SimpleCRM.Data
 
         [Display(Name = "Notes")]
         public string InteractionNotes { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

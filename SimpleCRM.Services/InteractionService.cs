@@ -1,4 +1,5 @@
 ﻿using SimpleCRM.Data;
+using SimpleCRM.Models.InteractionModel;
 using SimpleCRM.Models.OrganizationModel;
 using System;
 using System.Collections.Generic;
@@ -16,19 +17,20 @@ namespace SimpleCRM.Services
             _userId = userId;
         }
 
-        public bool CreateOrganization(OrganizationCreate model)
+        public bool CreateInteraction(InteractionCreate model)
         {
-            var entity = new Organization()
+            var entity = new Interaction()
             {
-                OrganizationName = model.OrganizationName,
-                OrganizationAddress = model.OrganizationAddress,
-                OrganizationIndustry = model.OrgaizationIndustry,
+                Event = model.Event,
+                Customer = model.Customer,
+                InteractionNotes = model.InteractionNotes,
+                InteractionPointValue = model.PointValue,
                 CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Organizations.Add(entity);
+                ctx.Interactions.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
