@@ -11,7 +11,10 @@ namespace SimpleCRM.Data
     public class Interaction
     {
         [Required]
+        [Key]
         public int InteractionId { get; set; }
+
+        public Guid OwnerId { get; set; }
 
         [Required]
         [ForeignKey("Customer")]
