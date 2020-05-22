@@ -79,16 +79,13 @@ namespace SimpleCRM.Services
             {
                 var entity =
                     ctx
-                        .Customers
-                        .Single(e => e.CustomerId == Model.CustomerId && e.OwnerId == _userId);
+                        .Organizations
+                        .Single(e => e.OrganizationId == Model.OrganizationId && e.OwnerId == _userId);
 
-                entity.CustomerFirstName = Model.CustomerFirstName;
-                entity.CustomerLastName = Model.CustomerLastName;
-                entity.Organization = Model.Organization;
-                entity.Points = Model.Points;
-                entity.Status = Model.Status;
-                entity.Role = Model.Role;
-                entity.ModifiedUtc = DateTime.Now;
+                entity.OrganizationName = Model.OrganizationName;
+                entity.OrganizationAddress = Model.OrganizationAddress;
+                entity.OrganizationIndustry = Model.OrganizationIndustry;
+                entity.ModifiedUtc = DateTime.Now
 
                 return ctx.SaveChanges() == 1;
             }
