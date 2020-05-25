@@ -10,7 +10,7 @@ namespace SimpleCRM.Models.InteractionModel
     public class InteractionListItem
     {
         public int InteractionId { get; set; }
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+
+        public string Customer { get; set; }
     }
 }

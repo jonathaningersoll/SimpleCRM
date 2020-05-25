@@ -47,7 +47,7 @@ namespace SimpleCRM.Services
                         e => new InteractionListItem
                         {
                             InteractionId = e.InteractionId,
-                            CustomerId = e.Customer.CustomerId
+                            Customer = e.Customer.CustomerFullName
                         }
                     );
                 return query.ToArray();

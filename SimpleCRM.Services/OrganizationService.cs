@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Services
 {
-    class OrganizationService
+    public class OrganizationService
     {
         private readonly Guid _userId;
         public OrganizationService(Guid userId)
