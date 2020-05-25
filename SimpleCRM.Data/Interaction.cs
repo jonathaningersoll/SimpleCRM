@@ -11,7 +11,10 @@ namespace SimpleCRM.Data
     public class Interaction
     {
         [Required]
+        [Key]
         public int InteractionId { get; set; }
+
+        public Guid OwnerId { get; set; }
 
         [Required]
         [ForeignKey("Customer")]
@@ -28,5 +31,7 @@ namespace SimpleCRM.Data
 
         [Display(Name = "Notes")]
         public string InteractionNotes { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+        public DateTimeOffset ModifiedUtc { get; set; }
     }
 }

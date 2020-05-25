@@ -1,4 +1,5 @@
 ﻿using SimpleCRM.Data;
+using SimpleCRM.Models.InteractionModel;
 using SimpleCRM.Models.OrganizationModel;
 using System;
 using System.Collections.Generic;
@@ -8,65 +9,66 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Services
 {
-    public class OrganizationService
+    class InteractionService
     {
         private readonly Guid _userId;
-        public OrganizationService(Guid userId)
+        public InteractionService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateOrganization(OrganizationCreate model)
+        public bool CreateInteraction(InteractionCreate model)
         {
-            var entity = new Organization()
+            var entity = new Interaction()
             {
-                OrganizationName = model.OrganizationName,
-                OrganizationAddress = model.OrganizationAddress,
-                OrganizationIndustry = model.OrgaizationIndustry,
+                Event = model.Event,
+                Customer = model.Customer,
+                InteractionNotes = model.InteractionNotes,
+                InteractionPointValue = model.PointValue,
                 CreatedUtc = DateTimeOffset.Now
             };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Organizations.Add(entity);
+                ctx.Interactions.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<OrganizationListItem> GetOrganizations()
+        public IEnumerable<InteractionListItem> GetInteractions()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                    .Customers.
+                    .Interactions.
                     Where(e => e.OwnerId == _userId)
                     .Select(
-                        e => new OrganizationListItem
+                        e => new InteractionListItem
                         {
-                            OrganizationId = e.OrganizationId,
-                            OrganizationName = e.Organization.OrganizationName
+                            InteractionId = e.InteractionId,
+                            Customer = e.Customer.CustomerFullName
                         }
                     );
                 return query.ToArray();
             }
         }
 
-        public OrganizationDetail GetOrganizationById(int id)
+        public InteractionDetail GetInteractionById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Organizations
-                        .Single(e => e.OrganizationId == id && e.OwnerId == _userId);
+                        .Interactions
+                        .Single(e => e.InteractionId == id && e.OwnerId == _userId);
                 return
-                    new OrganizationDetail
+                    new InteractionDetail
                     {
-                        OrganizationId = entity.OrganizationId,
-                        OrganizationName = entity.OrganizationName,
-                        OrganizationAddress = entity.OrganizationAddress,
-                        OrganizationIndustry = entity.OrganizationIndustry,
+                        InteractionId = entity.InteractionId,
+                        Customer = entity.Customer.CustomerFullName,
+                        Event = entity.Event.EventName,
+                        InteractionPointValue = entity.InteractionPointValue,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };

@@ -18,5 +18,6 @@ namespace SimpleCRM.Models.InteractionModel
 
         public int PointValue { get; set; }
         public string InteractionNotes { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
