@@ -83,11 +83,11 @@ namespace SimpleCRM.Controllers
 
             if (service.UpdateOrganization(model))
             {
-                TempData["SaveResult"] = "Your Organization was updated.";
+                TempData["SaveResult"] = "the organization was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your Organization could not be updated.");
+            ModelState.AddModelError("", "the organization could not be updated.");
             return View();
         }
 
@@ -109,7 +109,7 @@ namespace SimpleCRM.Controllers
 
             service.DeleteOrganization(id);
 
-            TempData["SaveResult"] = "Your Organization was removed";
+            TempData["SaveResult"] = "The organization was removed";
 
             return RedirectToAction("Index");
         }
