@@ -75,34 +75,33 @@ namespace SimpleCRM.Services
             }
         }
 
-        public bool UpdateOrganization(OrganizationEdit Model)
+        public bool UpdateInteraction(InteractionEdit Model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Organizations
-                        .Single(e => e.OrganizationId == Model.OrganizationId && e.OwnerId == _userId);
+                        .Interactions
+                        .Single(e => e.InteractionId == Model.InteractionId && e.OwnerId == _userId);
 
-                entity.OrganizationName = Model.OrganizationName;
-                entity.OrganizationAddress = Model.OrganizationAddress;
-                entity.OrganizationIndustry = Model.OrganizationIndustry;
+                entity.InteractionNotes = Model.InteractionNotes;
+                entity.InteractionPointValue = Model.InteractionPointValue;
                 entity.ModifiedUtc = DateTime.Now;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteOrganization(int OrganizationId)
+        public bool DeleteInteraction(int InteractionId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Organizations
-                        .Single(e => e.OrganizationId == OrganizationId && e.OwnerId == _userId);
+                        .Interactions
+                        .Single(e => e.InteractionId == InteractionId && e.OwnerId == _userId);
 
-                ctx.Organizations.Remove(entity);
+                ctx.Interactions.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }
