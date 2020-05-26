@@ -69,7 +69,8 @@ namespace SimpleCRM.Services
                     new CustomerDetail
                     {
                         CustomerId = entity.CustomerId,
-                        CustomerFullName = entity.CustomerFullName,
+                        CustomerFirstName = entity.CustomerFirstName,
+                        CustomerLastName = entity.CustomerLastName,
                         Organization = entity.Organization,
                         Role = entity.Role,
                         Points = entity.Points,
