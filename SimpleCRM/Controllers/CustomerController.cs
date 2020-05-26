@@ -71,7 +71,15 @@ namespace SimpleCRM.Controllers
             var model =
                 new CustomerEdit
                 {
-                    CustomerFirstName = detail.CustomerFullName,
+                    CustomerId = detail.CustomerId,
+                    CustomerFirstName = detail.CustomerFirstName,
+                    CustomerLastName = detail.CustomerLastName,
+                    Organization = detail.Organization,
+                    Role = detail.Role,
+                    Points = detail.Points,
+                    Status = detail.Status,
+                    ModifiedUtc = DateTimeOffset.Now
+
                     NoteId = detail.NoteId,
                     Title = detail.Title,
                     Content = detail.Content
