@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Services
 {
-    class InteractionService
+    public class InteractionService
     {
         private readonly Guid _userId;
         public InteractionService(Guid userId)
