@@ -102,11 +102,11 @@ namespace SimpleCRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateEventService();
+            var service = CreateInteractionService();
 
-            service.DeleteEvent(id);
+            service.DeleteInteraction(id);
 
-            TempData["SaveResult"] = "Your event was removed";
+            TempData["SaveResult"] = "Your Interaction was removed";
 
             return RedirectToAction("Index");
         }
