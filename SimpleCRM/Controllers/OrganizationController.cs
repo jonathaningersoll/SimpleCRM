@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using SimpleCRM.Data;
 using SimpleCRM.Models.OrganizationModel;
 using SimpleCRM.Services;
 using System;
@@ -68,25 +69,25 @@ namespace SimpleCRM.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, CustomerEdit model)
+        public ActionResult Edit(int id, OrganizationEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.CustomerId != id)
+            if (model.OrganizationId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var service = CreateCustomerService();
+            var service = CreateOrganizationService();
 
-            if (service.UpdateCustomer(model))
+            if (service.UpdateOrganization(model))
             {
-                TempData["SaveResult"] = "Your note was updated.";
+                TempData["SaveResult"] = "Your Organization was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your note could not be updated.");
+            ModelState.AddModelError("", "Your Organization could not be updated.");
             return View();
         }
 
