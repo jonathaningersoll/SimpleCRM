@@ -53,18 +53,15 @@ namespace SimpleCRM.Controllers
 
         public ActionResult Edit(int id)
         {
-            var service = CreateCustomerService();
-            var detail = service.GetCustomerById(id);
+            var service = CreateOrganizationService();
+            var detail = service.GetOrganizationById(id);
             var model =
-                new CustomerEdit
+                new OrganizationEdit
                 {
-                    CustomerId = detail.CustomerId,
-                    CustomerFirstName = detail.CustomerFirstName,
-                    CustomerLastName = detail.CustomerLastName,
-                    Organization = detail.Organization,
-                    Role = detail.Role,
-                    Points = detail.Points,
-                    Status = detail.Status,
+                    OrganizationId = detail.OrganizationId,
+                    OrganizationName = detail.OrganizationName,
+                    OrganizationAddress = detail.OrganizationAddress,
+                    OrganizationIndustry = detail.OrganizationIndustry
                 };
             return View(model);
         }
