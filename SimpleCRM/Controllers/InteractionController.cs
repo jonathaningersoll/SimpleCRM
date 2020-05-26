@@ -66,25 +66,25 @@ namespace SimpleCRM.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, EventEdit model)
+        public ActionResult Edit(int id, InteractionEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.EventId != id)
+            if (model.InteractionId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var service = CreateEventService();
+            var service = CreateInteractionService();
 
-            if (service.UpdateEvent(model))
+            if (service.UpdateInteraction(model))
             {
-                TempData["SaveResult"] = "Your event was updated.";
+                TempData["SaveResult"] = "Your Interaction was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your event could not be updated.");
+            ModelState.AddModelError("", "Your Interaction could not be updated.");
             return View();
         }
 
