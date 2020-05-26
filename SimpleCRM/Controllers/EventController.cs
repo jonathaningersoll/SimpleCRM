@@ -44,8 +44,8 @@ namespace SimpleCRM.Controllers
 
         public ActionResult Details(int id)
         {
-            var service = CreateOrganizationService();
-            var model = service.GetOrganizationById(id);
+            var service = CreateEventService();
+            var model = service.GetEventById(id);
 
             return View(model);
         }
