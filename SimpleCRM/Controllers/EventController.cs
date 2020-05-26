@@ -52,15 +52,16 @@ namespace SimpleCRM.Controllers
 
         public ActionResult Edit(int id)
         {
-            var service = CreateOrganizationService();
-            var detail = service.GetOrganizationById(id);
+            var service = CreateEventService();
+            var detail = service.GetEventById(id);
             var model =
-                new OrganizationEdit
+                new EventEdit
                 {
-                    OrganizationId = detail.OrganizationId,
-                    OrganizationName = detail.OrganizationName,
-                    OrganizationAddress = detail.OrganizationAddress,
-                    OrganizationIndustry = detail.OrganizationIndustry
+                    EventId = detail.EventId,
+                    EventName = detail.EventName,
+                    EventStartTime = detail.EventEndTime,
+                    EventEndTime = detail.EventEndTime,
+                    EventTopic = detail.EventTopic
                 };
             return View(model);
         }
