@@ -78,26 +78,25 @@ namespace SimpleCRM.Controllers
                     Role = detail.Role,
                     Points = detail.Points,
                     Status = detail.Status,
-                    ModifiedUtc = DateTimeOffset.Now
                 };
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, NoteEdit model)
+        public ActionResult Edit(int id, CustomerEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.NoteId != id)
+            if (model.CustomerId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var service = CreateNoteService();
+            var service = CreateCustomerService();
 
-            if (service.UpdateNote(model))
+            if (service.UpdateCustomer(model))
             {
                 TempData["SaveResult"] = "Your note was updated.";
                 return RedirectToAction("Index");
