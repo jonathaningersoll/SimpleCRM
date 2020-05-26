@@ -45,13 +45,13 @@ namespace SimpleCRM.Controllers
 
             var service = CreateCustomerService();
 
-            if (service.CreateNote(model))
+            if (service.CreateCustomer(model))
             {
-                TempData["SaveResult"] = "Your note was created.";
+                TempData["SaveResult"] = "Customer added.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Note could not be created.");
+            ModelState.AddModelError("", "Note could not be added.");
 
             return View(model);
         }
