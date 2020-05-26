@@ -44,24 +44,22 @@ namespace SimpleCRM.Controllers
 
         public ActionResult Details(int id)
         {
-            var service = CreateEventService();
-            var model = service.GetEventById(id);
+            var service = CreateInteractionService();
+            var model = service.GetInteractionById(id);
 
             return View(model);
         }
 
         public ActionResult Edit(int id)
         {
-            var service = CreateEventService();
-            var detail = service.GetEventById(id);
+            var service = CreateInteractionService();
+            var detail = service.GetInteractionById(id);
             var model =
-                new EventEdit
+                new InteractionEdit
                 {
-                    EventId = detail.EventId,
-                    EventName = detail.EventName,
-                    EventStartTime = detail.EventEndTime,
-                    EventEndTime = detail.EventEndTime,
-                    EventTopic = detail.EventTopic
+                    InteractionId = detail.InteractionId,
+                    InteractionNotes = detail.InteractionNotes,
+                    InteractionPointValue = detail.InteractionPointValue
                 };
             return View(model);
         }
