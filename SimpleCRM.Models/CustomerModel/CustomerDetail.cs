@@ -11,7 +11,8 @@ namespace SimpleCRM.Models.CustomerModel
     public class CustomerDetail
     {
         public int CustomerId { get; set; }
-        public string CustomerFullName { get; set; }
+        public string CustomerFirstName { get; set; }
+        public string CustomerLastName { get; set; }
         public int? OrganizationId { get; set; }
         public Organization Organization { get; set; }
         public Role Role { get; set; }
