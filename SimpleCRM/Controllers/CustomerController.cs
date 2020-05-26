@@ -120,9 +120,9 @@ namespace SimpleCRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateNoteService();
+            var service = CreateCustomerService();
 
-            service.DeleteNote(id);
+            service.DeleteCustomer(id);
 
             TempData["SaveResult"] = "Your note was deleted";
 
