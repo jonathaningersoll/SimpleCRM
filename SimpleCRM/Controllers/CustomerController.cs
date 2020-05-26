@@ -51,7 +51,7 @@ namespace SimpleCRM.Controllers
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Note could not be added.");
+            ModelState.AddModelError("", "Customer could not be added.");
 
             return View(model);
         }
@@ -98,11 +98,11 @@ namespace SimpleCRM.Controllers
 
             if (service.UpdateCustomer(model))
             {
-                TempData["SaveResult"] = "Your note was updated.";
+                TempData["SaveResult"] = "The customer was updated.";
                 return RedirectToAction("Index");
             }
 
-            ModelState.AddModelError("", "Your note could not be updated.");
+            ModelState.AddModelError("", "The customer could not be updated.");
             return View();
         }
 
@@ -124,7 +124,7 @@ namespace SimpleCRM.Controllers
 
             service.DeleteCustomer(id);
 
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "The customer was removed";
 
             return RedirectToAction("Index");
         }

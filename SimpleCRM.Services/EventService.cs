@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Services
 {
-    class EventService
+    public class EventService
     {
         private readonly Guid _userId;
         public EventService(Guid userId)
@@ -16,7 +16,7 @@ namespace SimpleCRM.Services
             _userId = userId;
         }
 
-        public bool CreateEvent(EventCreate model)
+        public bool EventCreate(EventCreate model)
         {
             var entity = new Event()
             {
