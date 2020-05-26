@@ -91,8 +91,8 @@ namespace SimpleCRM.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var svc = CreateEventService();
-            var model = svc.GetEventById(id);
+            var svc = CreateInteractionService();
+            var model = svc.GetInteractionById(id);
 
             return View(model);
         }
