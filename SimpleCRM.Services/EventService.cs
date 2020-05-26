@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimpleCRM.Services
 {
-    class EventService
+    public class EventService
     {
         private readonly Guid _userId;
         public EventService(Guid userId)
