@@ -31,13 +31,13 @@ namespace SimpleCRM.Controllers
 
             var service = CreateEventService();
 
-            if (service.CreateEvent(model))
+            if (service.EventCreate(model))
             {
-                TempData["SaveResult"] = "Organization added.";
+                TempData["SaveResult"] = "Event added.";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Organization could not be added.");
+            ModelState.AddModelError("", "Event could not be added.");
 
             return View(model);
         }
