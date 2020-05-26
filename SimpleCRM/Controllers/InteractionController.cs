@@ -114,7 +114,7 @@ namespace SimpleCRM.Controllers
         private InteractionService CreateInteractionService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new EventService(userId);
+            var service = new InteractionService(userId);
             return service;
         }
 
