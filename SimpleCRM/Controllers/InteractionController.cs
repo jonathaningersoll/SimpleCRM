@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using SimpleCRM.Models.InteractionModel;
 using SimpleCRM.Services;
 using System;
 using System.Collections.Generic;
@@ -24,19 +25,19 @@ namespace SimpleCRM.Controllers
         // POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EventCreate model)
+        public ActionResult Create(InteractionCreate model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateEventService();
+            var service = CreateInteractionService();
 
-            if (service.EventCreate(model))
+            if (service.InteractionCreate(model))
             {
-                TempData["SaveResult"] = "Event added.";
+                TempData["SaveResult"] = "Interaction recorded!";
                 return RedirectToAction("Index");
             };
 
-            ModelState.AddModelError("", "Event could not be added.");
+            ModelState.AddModelError("", "Interaction could not be recorded.");
 
             return View(model);
         }
@@ -118,11 +119,6 @@ namespace SimpleCRM.Controllers
             var service = new EventService(userId);
             return service;
         }
-        private EventService CreateEventService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new EventService(userId);
-            return service;
-        }
+
     }
 }

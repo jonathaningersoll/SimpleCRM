@@ -17,7 +17,7 @@ namespace SimpleCRM.Services
             _userId = userId;
         }
 
-        public bool CreateInteraction(InteractionCreate model)
+        public bool InteractionCreate(InteractionCreate model)
         {
             var entity = new Interaction()
             {
