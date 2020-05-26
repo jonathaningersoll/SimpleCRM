@@ -79,10 +79,6 @@ namespace SimpleCRM.Controllers
                     Points = detail.Points,
                     Status = detail.Status,
                     ModifiedUtc = DateTimeOffset.Now
-
-                    NoteId = detail.NoteId,
-                    Title = detail.Title,
-                    Content = detail.Content
                 };
             return View(model);
         }
