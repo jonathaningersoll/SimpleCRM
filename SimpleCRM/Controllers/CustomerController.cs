@@ -110,7 +110,7 @@ namespace SimpleCRM.Controllers
         public ActionResult Delete(int id)
         {
             var svc = CreateCustomerService();
-            var model = svc.GetNoteById(id);
+            var model = svc.GetCustomerById(id);
 
             return View(model);
         }
