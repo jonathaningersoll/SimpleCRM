@@ -16,7 +16,7 @@ namespace SimpleCRM.Services
             _userId = userId;
         }
 
-        public bool CreateEvent(EventCreate model)
+        public bool EventCreate(EventCreate model)
         {
             var entity = new Event()
             {

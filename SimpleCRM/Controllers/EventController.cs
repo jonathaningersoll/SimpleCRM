@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using SimpleCRM.Models.EventModel;
+using SimpleCRM.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,9 +29,9 @@ namespace SimpleCRM.Controllers
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateOrganizationService();
+            var service = CreateEventService();
 
-            if (service.CreateOrganization(model))
+            if (service.CreateEvent(model))
             {
                 TempData["SaveResult"] = "Organization added.";
                 return RedirectToAction("Index");
@@ -109,11 +112,12 @@ namespace SimpleCRM.Controllers
             return RedirectToAction("Index");
         }
 
-        private OrganizationService CreateOrganizationService()
+        private EventService CreateEventService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new OrganizationService(userId);
+            var service = new EventService(userId);
             return service;
         }
+
     }
 }
