@@ -58,19 +58,20 @@ namespace SimpleCRM.Controllers
 
         public ActionResult Details(int id)
         {
-            var svc = CreateNoteService();
-            var model = svc.GetNoteById(id);
+            var service = CreateCustomerService();
+            var model = service.GetCustomerById(id);
 
             return View(model);
         }
 
         public ActionResult Edit(int id)
         {
-            var service = CreateNoteService();
-            var detail = service.GetNoteById(id);
+            var service = CreateCustomerService();
+            var detail = service.GetCustomerById(id);
             var model =
-                new NoteEdit
+                new CustomerEdit
                 {
+                    CustomerFirstName = detail.CustomerFullName,
                     NoteId = detail.NoteId,
                     Title = detail.Title,
                     Content = detail.Content
