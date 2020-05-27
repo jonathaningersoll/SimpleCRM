@@ -14,7 +14,10 @@ namespace SimpleCRM.Controllers
         // GET: Interaction
         public ActionResult Index()
         {
-            return View();
+            var service = CreateInteractionService();
+            var model = service.GetInteractions();
+
+            return View(model);
         }
 
         public ActionResult Create()
