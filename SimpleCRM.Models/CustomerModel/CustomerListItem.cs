@@ -10,8 +10,9 @@ namespace SimpleCRM.Models.CustomerModel
 {
     public class CustomerListItem
     {
-        public int CustId { get; set; }
+        public int CustomerId { get; set; }
         public string FullName { get; set; }
+        public int OrganizationId { get; set; }
         public int? Points { get; set; }
         public Status Status { get; set; }
     }

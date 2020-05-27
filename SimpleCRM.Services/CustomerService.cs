@@ -48,8 +48,9 @@ namespace SimpleCRM.Services
                     .Select(
                         e => new CustomerListItem
                         {
-                            CustId = e.CustomerId,
+                            CustomerId = e.CustomerId,
                             FullName = e.CustomerFullName,
+                            OrganizationId = e.OrganizationId,
                             Points = e.Points
                         }
                     );
@@ -72,6 +73,7 @@ namespace SimpleCRM.Services
                         CustomerFirstName = entity.CustomerFirstName,
                         CustomerLastName = entity.CustomerLastName,
                         OrganizationName = entity.Organization.OrganizationName,
+                        OrganizationId = entity.OrganizationId,
                         Role = entity.Role,
                         Points = entity.Points,
                         Status = entity.Status,
@@ -92,7 +94,7 @@ namespace SimpleCRM.Services
 
                 entity.CustomerFirstName = Model.CustomerFirstName;
                 entity.CustomerLastName = Model.CustomerLastName;
-                entity.Organization.OrganizationName = Model.OrganizationName;
+                entity.OrganizationId = Model.OrganizationId;
                 entity.Points = Model.Points;
                 entity.Status = Model.Status;
                 entity.Role = Model.Role;
