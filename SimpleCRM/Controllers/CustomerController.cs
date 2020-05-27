@@ -70,7 +70,7 @@ namespace SimpleCRM.Controllers
                     CustomerId = detail.CustomerId,
                     CustomerFirstName = detail.CustomerFirstName,
                     CustomerLastName = detail.CustomerLastName,
-                    Organization = detail.Organization,
+                    OrganizationName = detail.OrganizationName,
                     Role = detail.Role,
                     Points = detail.Points,
                     Status = detail.Status,

@@ -71,7 +71,7 @@ namespace SimpleCRM.Services
                         CustomerId = entity.CustomerId,
                         CustomerFirstName = entity.CustomerFirstName,
                         CustomerLastName = entity.CustomerLastName,
-                        Organization = entity.Organization,
+                        OrganizationName = entity.Organization.OrganizationName,
                         Role = entity.Role,
                         Points = entity.Points,
                         Status = entity.Status,
@@ -92,7 +92,7 @@ namespace SimpleCRM.Services
 
                 entity.CustomerFirstName = Model.CustomerFirstName;
                 entity.CustomerLastName = Model.CustomerLastName;
-                entity.Organization = Model.Organization;
+                entity.Organization.OrganizationName = Model.OrganizationName;
                 entity.Points = Model.Points;
                 entity.Status = Model.Status;
                 entity.Role = Model.Role;
