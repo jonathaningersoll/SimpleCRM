@@ -245,6 +245,7 @@
     <Content Include="Views\Shared\_MyView.cshtml" />
     <Content Include="Views\Shared\_MyView2.cshtml" />
     <Content Include="Views\Shared\_Students.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

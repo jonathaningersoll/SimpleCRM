@@ -13,8 +13,7 @@ namespace SimpleCRM.Models.CustomerModel
         public int CustomerId { get; set; }
         public string CustomerFirstName { get; set; }
         public string CustomerLastName { get; set; }
-        public int? OrganizationId { get; set; }
-        public Organization Organization { get; set; }
+        public string OrganizationName { get; set; }
         public Role Role { get; set; }
         public int? Points { get; set; }
         public Status Status { get; set; }
