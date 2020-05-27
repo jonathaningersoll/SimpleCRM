@@ -10,16 +10,16 @@ namespace SimpleCRM.Models.CustomerModel
 {
     public class CustomerCreate
     {
+        [Display(Name = "First Name")]
         public string CustFirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string CustLastName { get; set; }
+
+        [Display(Name= "Organization")]
         public int? OrganizationId { get; set; }
-        public Organization Organization { get; set; }
         public Role Role { get; set; }
         public int? Points { get; set; }
         [Required]
         public Status Status { get; set; }
-
-        [Display(Name = "Created")]
-        public DateTimeOffset CreatedUtc { get; set; }
     }
 }

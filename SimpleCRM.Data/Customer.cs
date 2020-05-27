@@ -26,12 +26,13 @@ namespace SimpleCRM.Data
         public string CustomerFullName { 
             get
             {
-                return CustomerFirstName + CustomerLastName;
+                return CustomerFirstName + " " + CustomerLastName;
             }
+            set { }
          }
 
         [ForeignKey("Organization")]
-        public int OrganizationId { get; set; }
+        public int? OrganizationId { get; set; }
         public virtual Organization Organization { get; set; }
 
 

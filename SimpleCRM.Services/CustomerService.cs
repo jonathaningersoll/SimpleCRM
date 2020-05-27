@@ -23,7 +23,7 @@ namespace SimpleCRM.Services
                 OwnerId = _userId,
                 CustomerFirstName = model.CustFirstName,
                 CustomerLastName = model.CustLastName,
-                Organization = model.Organization,
+                OrganizationId = model.OrganizationId,
                 Role = model.Role,
                 Points = model.Points,
                 Status = model.Status,
