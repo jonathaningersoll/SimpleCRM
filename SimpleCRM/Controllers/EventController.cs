@@ -14,7 +14,10 @@ namespace SimpleCRM.Controllers
         // GET: Event
         public ActionResult Index()
         {
-            return View();
+            var service = CreateEventService();
+            var model = service.GetEvents();
+
+            return View(model);
         }
 
         public ActionResult Create()
