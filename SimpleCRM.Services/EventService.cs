@@ -20,6 +20,7 @@ namespace SimpleCRM.Services
         {
             var entity = new Event()
             {
+                OwnerId = _userId,
                 EventStartTime = model.EventStartTime,
                 EventEndTime = model.EventEndTime,
                 EventName = model.EventName,
