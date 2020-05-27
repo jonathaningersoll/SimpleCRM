@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNet.Identity;
 using SimpleCRM.Models.CustomerModel;
-using SimpleCRM.Models.OrganizationModel;
 using SimpleCRM.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace SimpleCRM.Controllers
 {
@@ -16,25 +16,21 @@ namespace SimpleCRM.Controllers
         // GET: Customer
         public ActionResult Index()
         {
-            ViewBag.Title = "Something New";
-            var model = new CustomerListItem[0];
+            var service = CreateCustomerService();
+            var model = service.GetCustomers();
+
             return View(model);
         }
 
         public ActionResult Create()
         {
+            var service = CreateOrganizationService();
+            var list = service.GetOrganizations();
+
+            ViewBag.OrganizationId = new SelectList(list, "OrganizationId", "OrganizationName");
+
             return View();
         }
-
-        // SELECT LIST FOR ORGANIZATION
-        //public ActionResult Create()
-        //{
-        //    //var service = new OrganizationService();
-        //    var list = new List<OrganizationListItem> { new OrganizationListItem { OrganizationId = 1, OrgName = "First"},
-        //    new OrganizationListItem{OrganizationId = 2, OrgName = "Second"}};
-        //    ViewBag.OrganizationId = new SelectList(list, "OrganizationId", "OrgName");
-        //    return View();
-        //}
 
         // POST: Create
         [HttpPost]
@@ -133,6 +129,13 @@ namespace SimpleCRM.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CustomerService(userId);
+            return service;
+        }
+
+        private OrganizationService CreateOrganizationService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new OrganizationService(userId);
             return service;
         }
 

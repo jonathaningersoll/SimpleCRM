@@ -20,9 +20,10 @@ namespace SimpleCRM.Services
         {
             var entity = new Organization()
             {
+                OwnerId = _userId,
                 OrganizationName = model.OrganizationName,
                 OrganizationAddress = model.OrganizationAddress,
-                OrganizationIndustry = model.OrgaizationIndustry,
+                OrganizationIndustry = model.OrganizationIndustry,
                 CreatedUtc = DateTimeOffset.Now
             };
 
@@ -39,13 +40,13 @@ namespace SimpleCRM.Services
             {
                 var query =
                     ctx
-                    .Customers.
+                    .Organizations.
                     Where(e => e.OwnerId == _userId)
                     .Select(
                         e => new OrganizationListItem
                         {
                             OrganizationId = e.OrganizationId,
-                            OrganizationName = e.Organization.OrganizationName
+                            OrganizationName = e.OrganizationName,
                         }
                     );
                 return query.ToArray();

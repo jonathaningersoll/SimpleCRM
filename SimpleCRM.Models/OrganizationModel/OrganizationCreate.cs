@@ -10,7 +10,6 @@ namespace SimpleCRM.Models.OrganizationModel
     {
         public string OrganizationName { get; set; }
         public string OrganizationAddress { get; set; }
-        public string OrgaizationIndustry { get; set; }
-        public DateTime CreatedUtc { get; set; }
+        public string OrganizationIndustry { get; set; }
     }
 }
