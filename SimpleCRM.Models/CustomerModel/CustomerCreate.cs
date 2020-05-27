@@ -16,7 +16,7 @@ namespace SimpleCRM.Models.CustomerModel
         public string CustLastName { get; set; }
 
         [Display(Name= "Organization")]
-        public int? OrganizationId { get; set; }
+        public int OrganizationId { get; set; }
         public Role Role { get; set; }
         public int? Points { get; set; }
         [Required]

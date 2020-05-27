@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using SimpleCRM.Models.CustomerModel;
+using SimpleCRM.Models.OrganizationModel;
 using SimpleCRM.Services;
 using System;
 using System.Collections.Generic;
@@ -24,10 +25,7 @@ namespace SimpleCRM.Controllers
 
         public ActionResult Create()
         {
-            var service = CreateOrganizationService();
-            var list = service.GetOrganizations();
-
-            ViewBag.OrganizationId = new SelectList(list, "OrganizationId", "OrganizationName");
+            ViewBag.OrganizationId = GetListOfOrganizations();
 
             return View();
         }
@@ -64,13 +62,16 @@ namespace SimpleCRM.Controllers
         {
             var service = CreateCustomerService();
             var detail = service.GetCustomerById(id);
+
+            ViewBag.OrganizationId = GetListOfOrganizations();
+
             var model =
                 new CustomerEdit
                 {
                     CustomerId = detail.CustomerId,
                     CustomerFirstName = detail.CustomerFirstName,
                     CustomerLastName = detail.CustomerLastName,
-                    OrganizationName = detail.OrganizationName,
+                    OrganizationId = detail.OrganizationId,
                     Role = detail.Role,
                     Points = detail.Points,
                     Status = detail.Status,
@@ -137,6 +138,15 @@ namespace SimpleCRM.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new OrganizationService(userId);
             return service;
+        }
+
+        private IEnumerable<SelectListItem> GetListOfOrganizations()
+        {
+            var orgService = CreateOrganizationService();
+            var editList = orgService.GetOrganizations();
+
+            IEnumerable<SelectListItem> list = new SelectList(editList, "OrganizationId", "OrganizationName");
+            return list;
         }
 
     }
