@@ -10,7 +10,9 @@ namespace SimpleCRM.Models.CustomerModel
 {
     public class CustomerCreate
     {
+        [Display(Name = "First Name")]
         public string CustFirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string CustLastName { get; set; }
 
         [Display(Name= "Organization")]
