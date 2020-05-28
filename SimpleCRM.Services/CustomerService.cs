@@ -49,7 +49,7 @@ namespace SimpleCRM.Services
                         e => new CustomerListItem
                         {
                             CustomerId = e.CustomerId,
-                            FullName = e.CustomerFullName,
+                            CustomerFullName = e.CustomerFullName,
                             OrganizationId = e.OrganizationId,
                             Points = e.Points
                         }
@@ -104,7 +104,6 @@ namespace SimpleCRM.Services
             }
         }
 
-        // NEEDS FIXED
         public bool DeleteCustomer(int CustomerId)
         {
             using (var ctx = new ApplicationDbContext())

@@ -10,11 +10,14 @@ namespace SimpleCRM.Models.InteractionModel
 {
     public class InteractionCreate
     {
-        public int? CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        //maybe removable
+        public int InteractionId { get; set; }
 
-        public int? EventId { get; set; }
-        public Event Event { get; set; }
+        [Display(Name ="Customer Name")]
+        public int CustomerId { get; set; }
+
+        [Display(Name = "Event Name")]
+        public int EventId { get; set; }
 
         public int PointValue { get; set; }
         public string InteractionNotes { get; set; }

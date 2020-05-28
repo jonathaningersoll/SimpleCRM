@@ -21,8 +21,9 @@ namespace SimpleCRM.Services
         {
             var entity = new Interaction()
             {
-                Event = model.Event,
-                Customer = model.Customer,
+                OwnerId = _userId,
+                EventId = model.EventId,
+                CustomerId = model.CustomerId,
                 InteractionNotes = model.InteractionNotes,
                 InteractionPointValue = model.PointValue,
                 CreatedUtc = DateTimeOffset.Now
@@ -47,7 +48,10 @@ namespace SimpleCRM.Services
                         e => new InteractionListItem
                         {
                             InteractionId = e.InteractionId,
-                            Customer = e.Customer.CustomerFullName
+                            CustomerId = e.CustomerId,
+                            CustomerFullName = e.Customer.CustomerFullName,
+                            EventId = e.EventId,
+                            EventName = e.Event.EventName
                         }
                     );
                 return query.ToArray();
@@ -66,8 +70,11 @@ namespace SimpleCRM.Services
                     new InteractionDetail
                     {
                         InteractionId = entity.InteractionId,
-                        Customer = entity.Customer.CustomerFullName,
+                        CustomerId = entity.CustomerId,
+                        CustomerFullName = entity.Customer.CustomerFullName,
+                        EventId = entity.EventId,
                         Event = entity.Event.EventName,
+                        InteractionNotes = entity.InteractionNotes,
                         InteractionPointValue = entity.InteractionPointValue,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
@@ -86,6 +93,8 @@ namespace SimpleCRM.Services
 
                 entity.InteractionNotes = Model.InteractionNotes;
                 entity.InteractionPointValue = Model.InteractionPointValue;
+                entity.CustomerId = Model.CustomerId;
+                entity.EventId = Model.EventId;
                 entity.ModifiedUtc = DateTime.Now;
 
                 return ctx.SaveChanges() == 1;
