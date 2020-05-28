@@ -23,7 +23,7 @@ namespace SimpleCRM.Data
 
         [Required]
         [ForeignKey("Event")]
-        public int? EventId { get; set; }
+        public int EventId { get; set; }
         public virtual Event Event { get; set; }
 
         [Display(Name = "Point Value")]

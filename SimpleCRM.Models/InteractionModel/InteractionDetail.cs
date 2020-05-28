@@ -11,8 +11,10 @@ namespace SimpleCRM.Models.InteractionModel
     {
         public int InteractionId { get; set; }
 
-        public string Customer { get; set; }
+        public int CustomerId { get; set; }
+        public string CustomerFullName { get; set; }
 
+        public int EventId { get; set; }
         public string Event { get; set; }
 
         public int InteractionPointValue { get; set; }

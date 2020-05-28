@@ -22,6 +22,8 @@ namespace SimpleCRM.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.CustomerId = GetListOfCustomers();
+            ViewBag.EventId = GetListOfEvents();
             return View();
         }
 
@@ -57,9 +59,15 @@ namespace SimpleCRM.Controllers
         {
             var service = CreateInteractionService();
             var detail = service.GetInteractionById(id);
+
+            ViewBag.CustomerId = GetListOfCustomers();
+            ViewBag.EventId = GetListOfEvents();
+
             var model =
                 new InteractionEdit
                 {
+                    CustomerId = detail.CustomerId,
+                    EventId = detail.EventId,
                     InteractionId = detail.InteractionId,
                     InteractionNotes = detail.InteractionNotes,
                     InteractionPointValue = detail.InteractionPointValue
@@ -119,6 +127,38 @@ namespace SimpleCRM.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new InteractionService(userId);
             return service;
+        }
+
+        private CustomerService CreateCustomerService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new CustomerService(userId);
+            return service;
+        }
+
+        private EventService CreateEventService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new EventService(userId);
+            return service;
+        }
+
+        private IEnumerable<SelectListItem> GetListOfCustomers()
+        {
+            var orgService = CreateCustomerService();
+            var editList = orgService.GetCustomers();
+
+            IEnumerable<SelectListItem> list = new SelectList(editList, "CustomerId", "CustomerFullName");
+            return list;
+        }
+
+        private IEnumerable<SelectListItem> GetListOfEvents()
+        {
+            var orgService = CreateEventService();
+            var editList = orgService.GetEvents();
+
+            IEnumerable<SelectListItem> list = new SelectList(editList, "EventId", "EventName");
+            return list;
         }
 
     }

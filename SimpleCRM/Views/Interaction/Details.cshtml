@@ -1,4 +1,4 @@
-﻿@model SimpleCRM.Models.EventModel.EventDetail
+﻿@model SimpleCRM.Models.InteractionModel.InteractionDetail
 
 @{
     ViewBag.Title = "Details";
@@ -7,47 +7,47 @@
 <h2>Details</h2>
 
 <div>
-    <h4>EventDetail</h4>
+    <h4>InteractionDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.HiddenFor(model => model.EventId)
+            @Html.HiddenFor(model => model.InteractionId)
         </dt>
 
         <dd>
-            @Html.HiddenFor(model => model.EventId)
+            @Html.HiddenFor(model => model.InteractionId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventStartTime)
+            @Html.DisplayNameFor(model => model.CustomerFullName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EventStartTime)
+            @Html.DisplayFor(model => model.CustomerFullName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventEndTime)
+            @Html.DisplayNameFor(model => model.Event)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EventEndTime)
+            @Html.DisplayFor(model => model.Event)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventName)
+            @Html.DisplayNameFor(model => model.InteractionPointValue)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EventName)
+            @Html.DisplayFor(model => model.InteractionPointValue)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventTopic)
+            @Html.DisplayNameFor(model => model.InteractionNotes)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.EventTopic)
+            @Html.DisplayFor(model => model.InteractionNotes)
         </dd>
 
         <dt>
@@ -69,6 +69,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.InteractionId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
