@@ -9,13 +9,13 @@ namespace SimpleCRM.Models.OrganizationModel
 {
     public class OrganizationCreate
     {
-        [Display(Name = "Organization")]
+        [Display(Name = "Organization:")]
         public string OrganizationName { get; set; }
         
-        [Display(Name = "Location")]
+        [Display(Name = "Location:")]
         public string OrganizationAddress { get; set; }
 
-        [Display(Name = "Industry")]
+        [Display(Name = "Industry:")]
         public string OrganizationIndustry { get; set; }
     }
 }
