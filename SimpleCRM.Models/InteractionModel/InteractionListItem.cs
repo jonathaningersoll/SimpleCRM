@@ -14,12 +14,12 @@ namespace SimpleCRM.Models.InteractionModel
 
         public int CustomerId { get; set; }
 
-        [Display(Name ="Full Name")]
+        [Display(Name ="Customer:")]
         public string CustomerFullName { get; set; }
 
         public int? EventId { get; set; }
 
-        [Display(Name ="Event")]
+        [Display(Name ="Event:")]
         public string EventName { get; set; }
     }
 }
