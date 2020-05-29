@@ -7,7 +7,6 @@
 <h2>Event Details</h2>
 
 <div>
-    <h4>EventDetail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,22 +15,6 @@
 
         <dd>
             @Html.HiddenFor(model => model.EventId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventStartTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventStartTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventEndTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventEndTime)
         </dd>
 
         <dt>
@@ -48,6 +31,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.EventTopic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventStartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventStartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventEndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventEndTime)
         </dd>
 
         <dt>
