@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EventId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.EventName)
         </th>
         <th></th>
@@ -22,9 +19,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventId)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.EventName)
         </td>
