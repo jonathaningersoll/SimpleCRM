@@ -12,9 +12,14 @@ namespace SimpleCRM.Models.CustomerModel
     public class CustomerEdit
     {
         public int CustomerId { get; set; }
+
+        [Display(Name = "First Name")]
         public string CustomerFirstName { get; set; }
+
+        [Display(Name = "Last Name")]
         public string CustomerLastName { get; set; }
 
+        [Display(Name = "Organization")]
         public int OrganizationId { get; set; }
 
         public int? Points { get; set; }

@@ -11,12 +11,14 @@ namespace SimpleCRM.Services
 {
     public class InteractionService
     {
-        private readonly Guid _userId;
-        public InteractionService(Guid userId)
-        {
-            _userId = userId;
-        }
 
+        // Declare the _userId field of type Guid
+        private readonly Guid _userId;
+        // Constructor for InteractionService class with the parameter 'userId' of type Guid.
+        public InteractionService(Guid userId){ _userId = userId; }
+
+
+        // CREATE INTERACTION
         public bool InteractionCreate(InteractionCreate model)
         {
             var entity = new Interaction()
@@ -36,16 +38,13 @@ namespace SimpleCRM.Services
             }
         }
 
+
+        // GET LIST OF INTERACTIONS
         public IEnumerable<InteractionListItem> GetInteractions()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
-                    ctx
-                    .Interactions.
-                    Where(e => e.OwnerId == _userId)
-                    .Select(
-                        e => new InteractionListItem
+                var query = ctx.Interactions.Where(e => e.OwnerId == _userId).Select(e => new InteractionListItem
                         {
                             InteractionId = e.InteractionId,
                             CustomerId = e.CustomerId,
@@ -58,14 +57,13 @@ namespace SimpleCRM.Services
             }
         }
 
+
+        // GET AN INTERACTION'S DETAILS
         public InteractionDetail GetInteractionById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .Interactions
-                        .Single(e => e.InteractionId == id && e.OwnerId == _userId);
+                var entity = ctx.Interactions.Single(e => e.InteractionId == id && e.OwnerId == _userId);
                 return
                     new InteractionDetail
                     {
@@ -82,6 +80,8 @@ namespace SimpleCRM.Services
             }
         }
 
+
+        // EDIT AN INTERACTION
         public bool UpdateInteraction(InteractionEdit Model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -101,14 +101,13 @@ namespace SimpleCRM.Services
             }
         }
 
+
+        // DELETE AN INTERACTION
         public bool DeleteInteraction(int InteractionId)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-                    ctx
-                        .Interactions
-                        .Single(e => e.InteractionId == InteractionId && e.OwnerId == _userId);
+                var entity = ctx.Interactions.Single(e => e.InteractionId == InteractionId && e.OwnerId == _userId);
 
                 ctx.Interactions.Remove(entity);
 

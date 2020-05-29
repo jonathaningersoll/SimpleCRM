@@ -11,7 +11,9 @@ namespace SimpleCRM.Controllers
 {
     public class InteractionController : Controller
     {
-        // GET: Interaction
+
+
+        // GET: INTERACTION INDEX
         public ActionResult Index()
         {
             var service = CreateInteractionService();
@@ -20,6 +22,8 @@ namespace SimpleCRM.Controllers
             return View(model);
         }
 
+
+        // GET: INTERACTION CREATE
         public ActionResult Create()
         {
             ViewBag.CustomerId = GetListOfCustomers();
@@ -27,7 +31,8 @@ namespace SimpleCRM.Controllers
             return View();
         }
 
-        // POST: Create
+
+        // POST: INTERACTION CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(InteractionCreate model)
@@ -47,6 +52,8 @@ namespace SimpleCRM.Controllers
             return View(model);
         }
 
+
+        // GET: INTERACTION DETAILS
         public ActionResult Details(int id)
         {
             var service = CreateInteractionService();
@@ -55,6 +62,8 @@ namespace SimpleCRM.Controllers
             return View(model);
         }
 
+
+        // 
         public ActionResult Edit(int id)
         {
             var service = CreateInteractionService();
