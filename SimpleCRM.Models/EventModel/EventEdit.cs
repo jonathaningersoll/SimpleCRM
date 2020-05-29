@@ -10,7 +10,11 @@ namespace SimpleCRM.Models.EventModel
     public class EventEdit
     {
         public int EventId { get; set; }
+
+        [Display(Name = "Event Start")]
         public DateTimeOffset EventStartTime { get; set; }
+
+        [Display(Name = "Event End")]
         public DateTimeOffset EventEndTime { get; set; }
 
         [Display(Name = "Event Title")]
