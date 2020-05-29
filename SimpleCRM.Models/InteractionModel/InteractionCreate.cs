@@ -10,17 +10,21 @@ namespace SimpleCRM.Models.InteractionModel
 {
     public class InteractionCreate
     {
-        //maybe removable
+
         public int InteractionId { get; set; }
 
-        [Display(Name ="Customer Name")]
+        [Display(Name ="Customer Name:")]
         public int CustomerId { get; set; }
 
-        [Display(Name = "Event Name")]
+        [Display(Name = "Event Name:")]
         public int EventId { get; set; }
 
+        [Display(Name = "Point Value:")]
         public int PointValue { get; set; }
+
+        [Display(Name = "Interaction Notes:")]
         public string InteractionNotes { get; set; }
+
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }
