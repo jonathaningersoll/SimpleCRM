@@ -11,7 +11,7 @@ namespace SimpleCRM.Models.OrganizationModel
     {
         public int OrganizationId { get; set; }
 
-        [Display(Name = "Organization")]
+        [Display(Name = "Organization:")]
         public string OrganizationName { get; set; }
     }
 }
