@@ -43,7 +43,11 @@ namespace SimpleCRM.Controllers
 
             if (service.InteractionCreate(model))
             {
-                TempData["SaveResult"] = "Interaction recorded!";
+                int points = model.PointValue;
+                
+                service.AddPointsToCustomer(points, model.CustomerId);
+
+                TempData["SaveResult"] = "Interaction recorded and points added!";
                 return RedirectToAction("Index");
             };
 
