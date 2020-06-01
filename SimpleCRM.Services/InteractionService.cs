@@ -4,6 +4,7 @@ using SimpleCRM.Models.OrganizationModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -110,6 +111,18 @@ namespace SimpleCRM.Services
                 var entity = ctx.Interactions.Single(e => e.InteractionId == InteractionId && e.OwnerId == _userId);
 
                 ctx.Interactions.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool AddPointsToCustomer(int points, int customerId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var customerEarner = ctx.Customers.Single(e => e.CustomerId == customerId && e.OwnerId == _userId);
+                int? originalPoints = customerEarner.Points;
+                customerEarner.Points = originalPoints + points;
 
                 return ctx.SaveChanges() == 1;
             }
