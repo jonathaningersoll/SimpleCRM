@@ -1,0 +1,27 @@
+﻿body {
+    background-color: deepskyblue;
+}
+
+.navbar {
+    background-color: green;
+}
+.navbar-inverse {
+    border: none;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+.navbar-inverse .navbar-brand:hover {
+    color: deepskyblue;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: deepskyblue;
+}
+.container .jumbotron {
+    border-radius: 0;
+}

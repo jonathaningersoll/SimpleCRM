@@ -3,31 +3,35 @@
 @{
     ViewBag.Title = "Index";
 }
+    <div class="jumbotron">
+        <h2>Organizations:</h2>
 
-<h2>Index</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrganizationName)
+                </th>
+                <th></th>
+            </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrganizationName)
-        </th>
-        <th></th>
-    </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrganizationName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OrganizationId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.OrganizationId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OrganizationId })
+                    </td>
+                </tr>
+            }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrganizationName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.OrganizationId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.OrganizationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.OrganizationId })
-        </td>
-    </tr>
-}
+        </table>
 
-</table>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+
+    </div>
