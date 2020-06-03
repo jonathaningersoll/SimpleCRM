@@ -20,6 +20,8 @@ namespace SimpleCRM.Controllers
             var service = CreateCustomerService();
             var model = service.GetCustomers();
 
+
+
             return View(model);
         }
 
