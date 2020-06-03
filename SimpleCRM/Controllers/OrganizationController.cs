@@ -11,6 +11,7 @@ using System.Web.Services.Description;
 
 namespace SimpleCRM.Controllers
 {
+    [Authorize]
     public class OrganizationController : Controller
     {
         // GET: Organization

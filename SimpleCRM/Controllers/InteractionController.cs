@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace SimpleCRM.Controllers
 {
+    [Authorize]
     public class InteractionController : Controller
     {
 

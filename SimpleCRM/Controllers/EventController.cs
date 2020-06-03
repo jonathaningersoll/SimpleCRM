@@ -9,8 +9,10 @@ using System.Web.Mvc;
 
 namespace SimpleCRM.Controllers
 {
+    [Authorize]
     public class EventController : Controller
     {
+
         // GET: Event
         public ActionResult Index()
         {
