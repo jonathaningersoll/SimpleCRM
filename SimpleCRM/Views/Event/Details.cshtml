@@ -1,0 +1,74 @@
+﻿@model SimpleCRM.Models.EventModel.EventDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="jumbotron">
+    <h2>Event Details</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.HiddenFor(model => model.EventId)
+            </dt>
+
+            <dd>
+                @Html.HiddenFor(model => model.EventId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EventName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EventName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EventTopic)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EventTopic)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EventStartTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EventStartTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EventEndTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EventEndTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EventId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -54,11 +54,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerModel\CustomerCreate.cs" />
+    <Compile Include="CustomerModel\CustomerDetail.cs" />
+    <Compile Include="CustomerModel\CustomerEdit.cs" />
+    <Compile Include="CustomerModel\CustomerListItem.cs" />
+    <Compile Include="EventModel\EventCreate.cs" />
+    <Compile Include="EventModel\EventDetail.cs" />
+    <Compile Include="EventModel\EventEdit.cs" />
+    <Compile Include="EventModel\EventListItem.cs" />
+    <Compile Include="InteractionModel\InteractionCreate.cs" />
+    <Compile Include="InteractionModel\InteractionDetail.cs" />
+    <Compile Include="InteractionModel\InteractionEdit.cs" />
+    <Compile Include="InteractionModel\InteractionListItem.cs" />
+    <Compile Include="OrganizationModel\OrganizationCreate.cs" />
+    <Compile Include="OrganizationModel\OrganizationDetail.cs" />
+    <Compile Include="OrganizationModel\OrganizationEdit.cs" />
+    <Compile Include="OrganizationModel\OrganizationListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleCRM.Data\SimpleCRM.Data.csproj">
+      <Project>{9BA99FE2-1F2B-489B-BDB7-A61AE9715260}</Project>
+      <Name>SimpleCRM.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
